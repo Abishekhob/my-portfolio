@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { BriefcaseIcon, PhoneIcon, EnvelopeIcon, GlobeAltIcon, CommandLineIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 const projects = [
@@ -31,6 +32,21 @@ const skills = [
   { category: "Deployment", list: "Vercel, Render, Railway, Firebase Hosting" },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
 const Portfolio = () => {
   return (
     <div className="bg-gray-950 text-gray-100 min-h-screen font-sans">
@@ -40,7 +56,6 @@ const Portfolio = () => {
         <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight animate-fade-in-down">Abishekh OB</h1>
         <p className="text-lg md:text-2xl mt-4 text-gray-300 font-light tracking-wide animate-fade-in-up">Full-Stack & Mobile App Developer</p>
         
-        {/* NEW: View Resume Button */}
         <a 
           href="/resume.pdf" 
           target="_blank" 
@@ -52,25 +67,44 @@ const Portfolio = () => {
         </a>
       </header>
 
-      {/* Main Content Sections */}
       <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
         
         {/* About Section */}
-        <section id="about" className="py-12 md:py-20 border-t border-gray-800">
+        <motion.section
+          id="about"
+          className="py-12 md:py-20 border-t border-gray-800"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-white">About Me</h2>
           <p className="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-gray-300 text-center">
             I am a passionate Full Stack & Mobile App Developer with over 1.5 years of experience building production-ready applications. My expertise lies in creating robust, end-to-end solutions using Java, Spring Boot, React, React Native, and PostgreSQL, with a strong focus on clean code, seamless user experiences, and scalable architecture.
           </p>
-        </section>
+        </motion.section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-12 md:py-20 border-t border-gray-800">
+        <motion.section
+          id="projects"
+          className="py-12 md:py-20 border-t border-gray-800"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-white">My Work</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {projects.map((project, index) => (
-              <a 
+              <motion.a 
                 href={project.link} 
-                key={index} 
+                key={index}
+                variants={itemVariants}
                 className="group relative block rounded-2xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -93,29 +127,52 @@ const Portfolio = () => {
                     </span>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-12 md:py-20 border-t border-gray-800">
+        <motion.section
+          id="skills"
+          className="py-12 md:py-20 border-t border-gray-800"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-white">My Skills</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-300"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {skills.map((skill, index) => (
-              <div key={index} className="flex items-start p-6 bg-gray-900 rounded-xl shadow-md transition-shadow duration-300 hover:shadow-2xl">
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="flex items-start p-6 bg-gray-900 rounded-xl shadow-md transition-shadow duration-300 hover:shadow-2xl"
+              >
                 <CommandLineIcon className="h-6 w-6 text-blue-400 mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="text-lg md:text-xl font-bold text-white mb-1">{skill.category}</h3>
                   <p className="text-sm md:text-base text-gray-400">{skill.list}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-12 md:py-20 border-t border-b border-gray-800">
+        <motion.section
+          id="contact"
+          className="py-12 md:py-20 border-t border-b border-gray-800"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-white">Get in Touch</h2>
           <div className="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-6 md:space-y-0">
             <a href="tel:+919566355504" className="flex items-center text-gray-300 hover:text-white transition-colors duration-300 group">
@@ -135,11 +192,10 @@ const Portfolio = () => {
               <span className="text-lg">linkedin.com/in/abishekh-ob</span>
             </a>
           </div>
-        </section>
+        </motion.section>
 
       </main>
 
-      {/* Footer */}
       <footer className="py-6 text-center text-gray-500 text-sm">
         <p>&copy; {new Date().getFullYear()} Abishekh OB. All Rights Reserved.</p>
       </footer>
