@@ -1,5 +1,5 @@
 import React from 'react';
-import { BriefcaseIcon, PhoneIcon, EnvelopeIcon, GlobeAltIcon, CommandLineIcon } from '@heroicons/react/24/solid';
+import { BriefcaseIcon, PhoneIcon, EnvelopeIcon, GlobeAltIcon, CommandLineIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 const projects = [
   {
@@ -39,6 +39,17 @@ const Portfolio = () => {
       <header className="p-8 md:p-16 text-center">
         <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight animate-fade-in-down">Abishekh OB</h1>
         <p className="text-lg md:text-2xl mt-4 text-gray-300 font-light tracking-wide animate-fade-in-up">Full-Stack & Mobile App Developer</p>
+        
+        {/* NEW: View Resume Button */}
+        <a 
+          href="/resume.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="inline-flex items-center mt-8 px-6 py-3 border border-blue-400 text-blue-400 text-base font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:bg-blue-400 hover:text-white group"
+        >
+          View Resume
+          <ArrowRightIcon className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
       </header>
 
       {/* Main Content Sections */}
