@@ -80,7 +80,7 @@ const Portfolio = () => {
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-white">About Me</h2>
           <p className="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-gray-300 text-center">
-            I am a passionate Full Stack & Mobile App Developer with over 1.5 years of experience building production-ready applications. My expertise lies in creating robust, end-to-end solutions using Java, Spring Boot, React, React Native, and PostgreSQL, with a strong focus on clean code, seamless user experiences, and scalable architecture.
+            I am a passionate Full Stack & Mobile App Developer with over 1 year of experience building production-ready applications. My expertise lies in creating robust, end-to-end solutions using Java, Spring Boot, React, React Native, and PostgreSQL, with a strong focus on clean code, seamless user experiences, and scalable architecture.
           </p>
         </motion.section>
 
